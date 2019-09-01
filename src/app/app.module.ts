@@ -15,7 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DirectiveComponent } from './directive/directive.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HighlightDirective } from './highlight.directive';
+import { SampleDirective } from './sample.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { HighlightDirective } from './highlight.directive';
     NotfoundComponent,
     DashboardComponent,
     DirectiveComponent,
-    HighlightDirective
+    SampleDirective
   ],
   imports: [
     BrowserModule,

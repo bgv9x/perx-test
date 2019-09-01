@@ -1,0 +1,43 @@
+<div class="dashboard-page">
+
+  <mat-form-field class="filter-container">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <table #dataTable mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let book"> {{book.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let book"> {{book.type | titlecase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="attributes.content">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Content </th>
+      <td mat-cell *matCellDef="let book"> {{book.attributes.content}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="attributes.display_properties.type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Display </th>
+      <td mat-cell *matCellDef="let book"> {{book.attributes.display_properties.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="attributes.created_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Created at </th>
+      <td mat-cell *matCellDef="let book"> {{book.attributes.created_at | date: 'medium'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="attributes.updated_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-headerg> Updated at </th>
+      <td mat-cell *matCellDef="let book"> {{book.attributes.updated_at | date: 'medium'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
